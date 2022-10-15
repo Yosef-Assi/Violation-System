@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'driver.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+    <title>Police info</title>
+    <style>
+        body {
+            background-image: linear-gradient(150deg, #020524 0%, #090079 15%, #00d4ff 100%);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+
+</head>
+
+<body class="m-5">
+    <div class="container-fluid">
+        <div class="container-fluid rounded-top" style="background-color: rgba(.5, 90, 100, 0.3) !important;">
+            <header>
+                <div class="container-fluid d-flex justify-content-between align-items-lg-center p-2">
+                    <a class="navbar-brand" href="#">
+                        <img src="/static/img/traffic.png" alt="" width="150" height="150"
+                            class="d-inline-block align-text-top">
+
+                    </a>
+                    <h2 id="h2">Violation system</h2>
+                    <button class="btn danger"><a href="/logout">Log out</a> </button>
+            </header>
+
+            <hr id="h2">
+            <nav class="topnav" id="myTopnav">
+                <ul>
+                    <li>
+                        <a href="/driver" class="active">Home</a>
+                    </li>
+                    <li>
+                        <a href="/showviolation"> MyViolations</a>
+                    </li>
+                    <li>
+                        <a href="#">MyLicense</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/rule">Rules</a>
+                    </li>
+
+                </ul>
+            </nav>
+            <div class="d-flex  justify-content-around row">
+                <div class="col-md-6 container-fluid d-flex  justify-content-between align-items-center">
+
+                    <div class=" mb-3" style="width:100%; height:80%">
+
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="/static/img/avatar.png" class="img-fluid rounded-start" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="body">
+
+                                    <h5 class="title">{{request.session.full_name}}</h5>
+                                    <table>
+                                        <tr class="row">
+                                            <td>Your city : {{driver.city}}</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr class="row">
+                                            <td>Your email : {{driver.email}}</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr class="row">
+                                            <td>Your Birthday : {{driver.birthday}}</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr class="row">
+                                            <td> Your Blood : {{driver.blood_type}} </td>
+                                            <td></td>
+                                        </tr>
+                                        <tr class="row">
+                                            <td>National ID : {{driver.notional_id}}</td>
+                                            <td></td>
+                                        </tr>
+
+                                    </table>
+                                    <p class="text"></p>
+
+                                    <a class="btn danger" href="/driver">My profile</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <div class="col-md-6  container-fluid">
+                    <div class="body">
+                        <h5 class="title">Driving violations and how to avoid them</h5>
+                        <h6 class="subtitle mb-2 text-muted">Driving without a seat belt</h6>
+                        <p class="text">In Ontario, all drivers and passengers must wear a seatbelt that is
+                            securely fastened and properly adjusted. If your
+                            passengers are under the age of 16, it is your responsibility as the driver to ensure their
+                            seatbelts are fastened
+                            properly at all times. The shoulder part of the seat belt should be worn across the chest
+                            with the lap part of the seat
+                            belt worn across the hips. The seatbelt should not be twisted or torn in any area and must
+                            be worn close against the
+                            body. A good habit is to ensure that you and your passengers are all safely buckled in
+                            before turning on the car.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="bg-dark text-center text-white">
+            <!-- Grid container -- -->
+            <div class="container-fluid p-4 pb-0">
+                <!-- Section: Form -->
+                <section class="">
+                    <form action="">
+                        <!--Grid row-->
+                        <div class="row d-flex justify-content-center">
+                            <!--Grid column-->
+                            <div class="col-auto">
+                                <p class="pt-2">
+                                    <strong>contact with Police</strong>
+                                </p>
+                            </div>
+                            <!--Grid column-->
+
+                            <!--Grid column-->
+                            <div class="col-md-5 col-12">
+                                <!-- Email input -->
+                                <div class="form-outline form-white mb-4">
+                                    <textarea type="text" id="form5Example29" class="form-control"></textarea>
+                                    <label class="form-label" for="form5Example29">Put what on your minde</label>
+                                </div>
+                            </div>
+                            <!--Grid column-->
+
+                            <!--Grid column-->
+                            <div class="col-auto">
+                                <!-- Submit button -->
+                                <button type="submit" class="btn btn-outline-light mb-4">
+                                    contact
+                                </button>
+                            </div>
+                            <!--Grid column-->
+                        </div>
+                        <!--Grid row-->
+                    </form>
+                </section>
+                <!-- Section: Form -->
+            </div>
+            <!-- Grid container -->
+
+            <!-- Copyright -->
+            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                © 2020 Copyright:<a href="/home">Home</a>
+            </div>
+            <!-- Copyright -->
+        </div>
+
+    </div>
+
+</body>
+
+</html>

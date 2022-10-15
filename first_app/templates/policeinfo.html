@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'police.css' %}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+  <title>Police info</title>
+  <style>
+    body {
+      background-image: linear-gradient(150deg, #020524 0%, #090079 15%, #00d4ff 100%);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+  </style>
+</head>
+
+<body>
+
+
+
+
+  <body class="m-5">
+    <div class="container rounded-top" style="background-color: rgba(.5, 90, 100, 0.3) !important;">
+      <nav class="navbar">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="/static/img/traffic.png" alt="" width="150" height="150"
+              class="d-inline-block align-text-top">
+
+          </a>
+          <h2 id="h2">Violation system</h2>
+          <button class="btn danger"><a href="/logout2"> Log out </a></button>
+        </div>
+
+      </nav>
+      <hr id="h2">
+      <div>
+        <nav class="topnav" id="myTopnav">
+          <ul>
+            <li>
+                <a  href="/home">Home</a>
+            </li>
+            <li>
+                <a  href="/policeviolation">Violations</a>
+            </li>
+            <li>
+                <a  href="/addviolation">Add Violation</a>
+            </li>
+            <li>
+                <a  href="/email">Contact Drivers</a>
+            </li>
+        </ul>
+        </nav>
+
+        <div class="d-flex p-5 m-3">
+
+          <div class="mb-3" style="max-width: 540px;">
+
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="/static/img/avatar.png" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="body">
+
+                  <h5 class="title">{{request.session.full_name_p}}</h5>
+                  <br>
+                  <table>
+                    <tr>Your city: {{police.city}}</tr>
+                    <br>
+                    <tr>Your email: {{police.email}}</tr>
+                  </table>
+                  <p class="text"></p>
+
+                  <a class="btn btn-outline-danger" href="/addviolation">Add violation</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <hr>
+
+      </div>
+
+    </div>
+    </div>
+  </body>
+
+</html>

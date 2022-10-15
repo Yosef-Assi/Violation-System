@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'home.css' %}" > 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+    rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+     <style>
+
+        body {
+        background-image: linear-gradient(150deg, #020524 0%, #090079 15%, #00d4ff 100%);  
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        }
+      </style>
+    
+</head>
+
+<body class="m-5">
+    <div class="container rounded-top" style="background-color: rgba(.5, 90, 100, 0.3) !important;">
+        <nav class="navbar" >
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">
+                <img src="/static/img/traffic.png" alt="" width="150" height="150" class="d-inline-block align-text-top">
+               
+              </a>
+              <h2 id="h2">Violation system</h2>
+              <div>
+              <button  class="btn danger"><a id="a2" href="/login">Sign in</a> </button>
+              <button  class="btn danger"><a id="a2" href="/login">Sign up</a> </button>
+            </div>
+            
+          </nav>
+          <hr class="hr">
+          <div>
+
+            <div class="d-flex p-5 ">
+                <div class="flex-grow-1 ms-3  ">
+                    <p>Welocme to your violation checker! <br>
+                        this website helps you to reach to your traffic violations online from anywhere in the country,
+                        <br>
+                        all you need is a profile here and all your violations deatails will be reserved here.
+                     </p>
+                </div>
+                <div class="flex-shrink-0">
+                    <img src="/static/img/police-station.png" width="150px" hight="100px">
+                </div>
+            </div>
+            <hr>
+            <div class="d-flex p-5">
+                <div class="flex-shrink-0 me-5">
+                    <img src="/static/img/traffic.png" width="100px">
+                </div>
+                <div class="flex-grow-1 ms-3 ">
+                    <p>Welocme to your violation checker! <br>
+                        this website helps you to reach to your traffic violations online from anywhere in the country,
+                        <br>
+                        all you need is a profile here and all your violations deatails will be reserved here.
+                     </p>
+                </div>
+              
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

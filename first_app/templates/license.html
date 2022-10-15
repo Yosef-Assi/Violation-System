@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My license</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'license.css'%}" />
+    <style>
+
+        body {
+        background-image: linear-gradient(150deg, #020524 0%, #090079 15%, #00d4ff 100%);  
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        }
+      </style>
+</head>
+<body>
+    <div class="container-fluid p-5">
+        <div class="container-fluid rounded-top" style="background-color: rgba(.5, 90, 100, 0.3) !important;">
+          <header>
+            <div class="container-fluid d-flex justify-content-between align-items-lg-center p-2">
+              <a class="navbar-brand" href="#">
+                <img src="/static/img/traffic.png" alt="" width="150" height="150"
+                  class="d-inline-block align-text-top">
+    
+              </a>
+              <h2 id="h2">Violation system</h2>
+              <button class="btn danger"><a href="/logout">Log out</a> </button>
+          </header>
+    
+          <hr id="h2">
+          <nav class="container-fluid topnav" id="myTopnav">
+            <ul>
+              <li>
+                <a href="/driver" class="active">Home</a>
+              </li>
+              <li>
+                <a href="/showviolation"> MyViolations</a>
+              </li>
+              <li>
+                <a href="/license">MyLicense</a>
+              </li>
+              <li>
+                <a href="/rule">Rules</a>
+              </li>
+    
+            </ul>
+          </nav>
+ 
+         <h5 class="title m-5 text-light">{{request.session.full_name}}</h5>
+         <!-- <form method="post" enctype="multipart/form-data" action="/addproduct">
+          {%csrf_token%}
+      <label for="">name</label>
+      <input type="text" name="fname" id="">
+      <label for="">model_y</label>
+      <input type="text" name="modely">
+      <label for="">des</label>
+      <input type="text" name="desc">
+      <label for="">price</label>
+      <input type="text" name="price">
+      <label for="image">image</label>
+      <input type="file" name="image" accept="image/*">
+      <input type="submit" value="submit"> -->
+  <!-- </form> -->
+  <!-- {%  for i in testy %}
+<h1>{{ i.name }}</h1>
+{% if i.image %}
+<img src="/images/{{i.image}}">
+{% endif %}
+{% endfor %} -->
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+            <label>
+                <span class="text-white">My license:</span>
+                <input type="file" name="image" accept="image/*" class="btn btn-outline-primary">
+            </label>
+                <button class="btn btn-outline-danger" type='submit'>upload</button>
+                
+            </form>
+            <br>
+            {% if licimage %}
+            <div class="container-fluid d-flex">
+           <label for="image" class="text-white">Image :</label><img src="{{licimage.url}}">
+            </div>
+            {% else %}
+          image: <img src="/">
+          {% endif %}
+              
+            
+</body>
+</html>

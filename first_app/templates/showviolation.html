@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My violations</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'show.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <style>
+        body {
+            background-image: linear-gradient(150deg, #020524 0%, #090079 15%, #00d4ff 100%);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body class="m-5 p-5">
+    <div class="container rounded-top p-5" style="background-color: rgba(.5, 90, 100, 0.3) !important;">
+        <nav class="navbar">
+
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="/static/img/traffic.png" alt="" width="150" height="150"
+                        class="d-inline-block align-text-top">
+
+                </a>
+                <h2 id="h2">Violation system</h2>
+                <button class="btn danger"><a href="/logout"> Log out </a></button>
+            </div>
+        </nav>
+
+        <hr id="h2">
+        <nav class="topnav" id="myTopnav">
+            <ul>
+                <li>
+                    <a href="/driver" class="active">Home</a>
+                </li>
+                <li>
+                    <a href="/showviolation"> MyViolations</a>
+                </li>
+                <li>
+                    <a href="/license">MyLicense</a>
+                </li>
+                <li>
+                    <a href="/rule">Rules</a>
+                </li>
+
+            </ul>
+        </nav>
+
+        <h2 id="h2">My violations</h2>
+        <br>
+        <td width="15%">
+            <p><a href=""><img src="/static/img/tt.jpg" alt="ss" width="20"> {{showvio.count}}</a></p>
+        </td>
+        <table class="table  table-hover" id="t2">
+            <tr>
+                <th>Violation id</th>
+                <th>Police id</th>
+                <th>Location</th>
+                <th>Fees</th>
+                <th>expiary date</th>
+                <th>Status</th>
+            </tr>
+
+        </table>
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+    $(document).ready(function(){
+             $.ajax({
+                 type:'GET',
+                 url : "{% url 'getviolation' %}",
+                 success:function(response) {
+                    swal("Your Violations");
+                     for (var key in response.violations) {
+                        console.log(response.violations[key].id)
+                        var temp="<tr><td>"+response.violations[key].id +"</td>"+"<td>"+response.violations[key].police_id +"</td>"+"</td>"+"<td>"+response.violations[key].location +"</td>"+"</td>"+"</td>"+"<td>"+response.violations[key].fees +"</td>"+"<td>"+response.violations[key].expierd_date_violation +"</td>"+"<td>"+response.violations[key].status +"</td></tr>";
+ 
+                        $("#t2").append(temp);
+                     }
+
+                 },
+                 error:function(response){
+                    alert('error');
+                 },
+             });
+       
+    });
+ </script>
+</body>
+
+</html>
+
+
+
+
+

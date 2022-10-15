@@ -1,0 +1,19 @@
+
+*{
+  color: rgb(169, 182, 194);
+}
+h2:hover {
+  color: rgb(214, 197, 49);
+}
+.card-title {
+  color:rgb(150, 71, 71) !important;
+}
+
+#a2 {
+  text-decoration: none;
+  color:red;
+
+}
+#a2:hover {
+  color: rgb(184, 11, 11)
+}

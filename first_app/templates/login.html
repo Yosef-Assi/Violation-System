@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static  'style.css'%}" />
+    <style>
+
+        body {
+        background-image: linear-gradient(150deg, #020524 0%, #090079 15%, #00d4ff 100%);  
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        }
+      </style>
+</head>
+
+<body>
+    <div class="container-fluid1" id="reg2" style="background-color: rgba(.5, 90, 100, 0.3) !important;">
+
+        <div class="login">
+         
+            <form action="/signin" , method="post">
+              
+                <div class="login-selcet">
+                    <h1 class="log-title">Login</h1>
+                    <select name="type" class="form-select" aria-label="Disabled select example">
+                        <option value="driver">Driver</option>
+                        <option value="police">Police</option>
+                    </select>
+                </div>
+            <div class="user-input-box1">
+              
+                {% csrf_token %}
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter Email" /><br>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter Password" /><br>
+            </div>
+            <div class="form-submit-btn1" style="width:80%; margin-left:50px;">
+                <input type="submit" value="Login">
+            </div>
+            <div class="container-fluid login-signup1">
+                <span class="text">Not a member?</span>
+                <a href="#" class="text signup-text" onclick="click1()">Signup now</a>
+            </div>
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </form>
+        </div>
+    </div>
+    <div class="contaner1" id="reg">
+        <!-- regestration Driver -->
+        <div class="form">
+            <div class="flex">
+                <h1 class="form-title">Driver Registration</h1>
+                <div class="choose">
+                    <p>User Type:</p>
+                    <div class="form-submit-btn2">
+                        <input type="submit" value="Police" onclick="click2()">
+                    </div>
+                </div>
+            </div>
+           
+            <form action="/reg" method="post">
+                {% csrf_token %}
+                <div class="main-user-info">
+                    <div class="user-input-box">
+                        <label for="fullname">Full Name</label>
+                        <input type="text" id="fullName" name="fullname" placeholder="Enter Full Name" />
+                    </div>
+                    <div class="user-input-box">
+                        <label for="nid">Notional_id</label>
+                        <input type="text" id="nid" name="nid" placeholder="your notional_id is" />
+                    </div>
+                    <div class="user-input-box">
+                        <label for="blod type">Blood Type</label>
+                        <input type="text" id="blod type" name="blood_type" placeholder="Your blod type is" />
+                    </div>
+                    <div class="user-input-box">
+                        <label for="birthday">birthday</label>
+                        <input type="date" id="birthday" name="birthday" />
+                    </div>
+                    <div class="user-input-box">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Enter Email" />
+                    </div>
+                    <div class="user-input-box">
+                        <label for="phoneNumber">Phone Number</label>
+                        <input type="text" id="phoneNumber" name="phonenumber" placeholder="Enter Phone Number" />
+                    </div>
+                    <div class="user-input-box">
+                        <label for="city">City</label>
+                        <input type="text" id="city" name="city" placeholder="Enter Your City" />
+                    </div>
+                    <div class="user-input-box">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Enter Password" />
+                    </div>
+                    <div class="user-input-box">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" id="confirmPassword" name="cpassword"
+                            placeholder="Confirm Password" />
+                    </div>
+                </div>
+                <div class="form-submit-btn">
+                    <input type="submit" value="Register">
+                </div>
+            </form>
+                <div class="login-signup">
+                    <span class="text">Not a member?</span>
+                    <a href="#" class="text signup-text" onclick="click1()">Login now</a>
+                </div>
+            
+        </div>
+    </div>
+    <div class="contaner1" id="reg3">
+        <!-- regestration  Police-->
+        <div class="form">
+            <div class="flex">
+                <h1 class="form-title">Police Registration</h1>
+                <div class="choose">
+                    <p>User Type:</p>
+                    <div class="form-submit-btn2">
+                        <input type="submit" value="Driver" onclick="clikc3()">
+                    </div>
+                </div>
+            </div>
+            <form action="/police" method="post">
+                {% csrf_token %}
+                <div class="main-user-info">
+                    <div class="user-input-box">
+                        <label for="fullname">Full Name</label>
+                        <input type="text" id="fullName" name="fullname" placeholder="Enter Full Name" />
+                    </div>
+                    <div class="user-input-box">
+                        <label for="birthday">Birthday</label>
+                        <input type="date" id="birthday" name="birthday" />
+                    </div>
+                    <div class="user-input-box">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Enter Email" />
+                    </div>
+                    <div class="user-input-box">
+                        <label for="phoneNumber">Phone Number</label>
+                        <input type="text" id="phoneNumber" name="phonenumber" placeholder="Enter Phone Number" />
+                    </div>
+                    <div class="user-input-box">
+                        <label for="city">City</label>
+                        <input type="text" id="city" name="city" placeholder="Enter Your City" />
+                    </div>
+                    <div class="user-input-box">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Enter Password" />
+                    </div>
+                    <div class="user-input-box">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" id="confirmPassword" name="cpassword"
+                            placeholder="Confirm Password" />
+                    </div>
+                </div>
+                <div class="form-submit-btn">
+                    <input type="submit" value="Register">
+                </div>
+                <div class="login-signup">
+                    <span class="text">Not a member?</span>
+                    <a href="#" class="text signup-text" onclick="click1()">Login now</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+<script>
+    function click1() {
+        var x = document.getElementById('reg');//regdrive
+        var y = document.getElementById('reg2');//login
+        var z = document.getElementById('reg3');
+        if (y.style.display === 'none') {
+            x.style.display = 'none';
+            y.style.display = 'block'
+            z.style.display = 'none'
+        } else {
+            x.style.display = 'block'
+            y.style.display = 'none'
+            z.style.display = 'none'
+        }
+    }
+    function click2() {
+        var x = document.getElementById('reg');
+        var y = document.getElementById('reg2');
+        var z = document.getElementById('reg3');//regPolice
+        if (z.style.display === 'none') {
+            z.style.display = 'block'
+            x.style.display = 'none';
+            y.style.display = 'none'
+        } else {
+            x.style.display = 'none'
+            y.style.display = 'block'
+            z.style.display = 'none'
+        }
+    }
+    function clikc3() {
+        var x = document.getElementById('reg');
+        var y = document.getElementById('reg2');
+        var z = document.getElementById('reg3');
+        if (x.style.display === 'none') {
+            z.style.display = 'none'
+            x.style.display = 'block';
+            y.style.display = 'none'
+        } else {
+            x.style.display = 'none'
+            y.style.display = 'block'
+            z.style.display = 'none'
+        }
+    }
+</script>
+
+</html>

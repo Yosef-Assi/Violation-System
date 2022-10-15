@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My violations</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'show.css' %}" > 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <style>
+        body {
+        background-image: linear-gradient(150deg, #020524 0%, #090079 15%, #00d4ff 100%);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        }
+      </style>
+</head>
+<body class="m-5 p-5">
+    <div class="container rounded-top p-5"  style="background-color: rgba(.5, 90, 100, 0.3) !important;">
+        <nav class="navbar" >
+         
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">
+                <img src="/static/img/traffic.png" alt="" width="150" height="150" class="d-inline-block align-text-top">
+               
+              </a>
+              <h2 id="h2">Violation system</h2>
+              <button   class="btn  btn44"><a href="/logout2">Log out</a></button>
+            </div>
+          </nav>
+
+          <hr id="h2">
+          <nav class="topnav" id="myTopnav">
+            <ul>
+              <li>
+                  <a  href="/policeinfo">Home</a>
+              </li>
+              <li>
+                  <a  href="/policeviolation">Violations</a>
+              </li>
+              <li>
+                  <a  href="/addviolation">Add Violation</a>
+              </li>
+              <li>
+                  <a  href="/email">Contact Drivers</a>
+              </li>
+          </ul>
+          </nav>
+    
+       
+    <h2 id="h2">My violations</h2>
+    <br>
+
+    <table class="table table-hover postTable" id="t2">
+        <tr>
+            <th>Violation</th>
+            <th>Police name</th>
+            <th>Location</th>
+            <th>Fees</th>
+            <th>expiary date</th>
+            <th>Update/Delete</th>
+        </tr>
+        {% for vio in allviolations%}
+        {% if this_driver.id == vio.police.id %}
+        <tr class="post-{{vio.id}}">
+            <td>{{vio.id}}</td>
+            <td>{{vio.police.full_name}}</td>
+            <td>{{vio.location}}</td>
+            <td>{{vio.fees}}</td>
+            <td>{{vio.expierd_date_violation}}</td>
+            {% csrf_token %}
+            <td> <button ><a class="a11" href="/update/{{vio.id}}">Update</a></button> <button data-id={{vio.id}} class="a12"><a  href="/delete/{{vio.id}}">Delete</a></button> </td>
+        </tr>
+
+        {%endif%}
+        {%endfor%}
+        
+    </table>
+  
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+    
+    $(document).ready(function () {
+
+$("body").on("click",".a12",function(e){
+
+
+
+    
+    var id = $(this).data("id");
+
+    $.ajax({
+        url: "delete/"+id,
+        type: 'DELETE',
+        dataType: 'json',
+        headers: {
+            "X-CSRFTOKEN": "{{ csrf_token }}"
+        },
+        data: {
+            id: id //id for button
+        },
+        success: function (response){
+            $(".postTable .post-" + id).remove();
+        }
+    });
+    return false;
+});
+});
+ </script>
+</body>
+</html>
