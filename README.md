@@ -24,7 +24,9 @@ To deploy this project run
 ## The ERD 
 
 ![App Screenshot](https://www.udrop.com/cache/plugins/filepreviewer/760272/c089af9d22070d996e7e515a785a7ed802caf4243ac4cbc7522eb21596a0eb80/1100x800_cropped.jpg)
+## About the project 
 
+The goal of the project is to solve the problem of loss or exposure of the violation paper to damage. We touched on the use of modern technology to solve this problem by making a program through which the violations were placed and sent by e-mail, but in the future we will add some characteristics to the project, which is the method of payment through the website.
 ## Home Page
 
 
