@@ -21,12 +21,11 @@ To deploy this project run
 
 ```
 
+## The ERD 
 
-
-
+![App Screenshot](https://www.udrop.com/cache/plugins/filepreviewer/760272/c089af9d22070d996e7e515a785a7ed802caf4243ac4cbc7522eb21596a0eb80/1100x800_cropped.jpg)
 
 ## Home Page
-
 
 
 ![App Screenshot](https://www.udrop.com/cache/plugins/filepreviewer/758925/96c9180307783f2216f18debb75ded5672b947c67e1195bffbcd001e43fe0dfc/1100x800_cropped.jpg)
