@@ -7,7 +7,8 @@ Laith Barooq ,
 Hala Abu Zant , 
 Yosef Assi .
 
-
+Supervisors:
+Amen Eid , Fatema.
 Introduction : 
 
 This project aims to vacillate the access to traffic violations for both driver and 
